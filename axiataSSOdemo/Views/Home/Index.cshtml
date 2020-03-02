@@ -1,0 +1,34 @@
+﻿@using System.Security.Claims
+@using sample2.Models
+@{
+    ViewBag.Title = "Axiata SSO demo";
+}
+<h2>@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            <h3>@ViewBag.Message</h3>
+        </p>
+        <hr />
+        <h4>Claims Present in the Claims Identity: @ViewBag.DisplayName</h4>
+        <hr />
+        <table class="table table-striped table-bordered table-hover table-condensed claim-table">
+            <tr>
+                <th class="claim-type claim-data claim-head">Claim Type</th>
+                <th class="claim-data claim-head">Claim Value</th>
+            </tr>
+
+            @foreach (Claim claim in ClaimsPrincipal.Current.Claims)
+            {
+                <tr>
+                    <td class="claim-type claim-data">@claim.Type</td>
+                    <td class="claim-data">@claim.Value</td>
+                </tr>
+            }
+            </table>
+           
+</div>
+
+</div>
